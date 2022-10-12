@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm  bg-light">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-link active" routerLinkActive="linkActive" aria-current="page" routerLink="home">Home</a>
+                <a class="nav-link" routerLinkActive="linkActive" *ngFor="let item of categories" [routerLink]="['/category', item.id]">{{item.name}}</a>
+                
+
+            </div>
+
+            <div class="d-flex my-2 my-lg-0">
+
+                <div class="navbar-nav position-relative pe-3">
+
+                    
+                    <button *ngIf="!profile; else elseBlock" (click)="login()">Login</button>
+                    <ng-template #elseBlock>{{ profile?.email }}</ng-template>
+
+                    <div class="nav-link position-relative " href="#">
+                        <img src="../../../assets/svg/icon_shopping_cart.svg" alt="">
+                        <span class="position-absolute top-0 star-50 badge rounded-pill bg-success ">{{counter}}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

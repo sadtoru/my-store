@@ -1,0 +1,27 @@
+<div class="card text-center card--tamaño card--hover ">
+
+    <a [routerLink]="['/product', product.id]">
+
+        <app-img class="img-fluid mt-3" *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
+
+    </a>
+
+
+    <div class="card-body">
+        <p class="card-title"> {{product.title}} </p>
+        
+        
+    </div>
+    <div class="pb-3  align-items-end justify-content-around">
+        <h4 class="card-text text-success"> {{product.price | currency: 'USD' }} </h4>
+        <button (click)="onAddToCart()" type="button" class="btn btn-outline-success"> Add </button>
+
+    </div>
+
+    <!-- offcanvas button -->
+    
+    <button (click)="onShowDetail()" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" href="#offcanvasRight" aria-controls="offcanvasRight">detalle</button>
+
+
+</div>
+
